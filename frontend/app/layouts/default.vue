@@ -6,10 +6,20 @@
         <slot />
       </div>
     </main>
-    <MainFooter />
+    <MainFooter 
+      :footer="settings?.footer" 
+      :social-media="settings?.socialMedia" 
+    />
   </div>
 </template>
 
-<script setup>
-// 
+<script setup lang="ts">
+import type { Settings } from '~/types/sanity'
+
+const { data: settings } = await useSanityQuery<Settings>(
+  groq`*[_type == "settings" && _id == "settings"][0]{
+    footer,
+    socialMedia
+  }`
+)
 </script>

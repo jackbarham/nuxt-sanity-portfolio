@@ -2,9 +2,9 @@
   <footer class="footer">
     <div class="bg-gray-950 text-stone-50 pt-20 pb-16 md:py-20">
       <div class="lg:flex justify-between items-center md:flex-row-reverse layout-full">
-        <div v-if="settings?.socialMedia?.socialLinks?.length" class="flex justify-center lg:justify-normal lg:mr-0 mb-12 lg:mb-0 gap-4">
+        <div v-if="socialMedia?.socialLinks?.length" class="flex justify-center lg:justify-normal lg:mr-0 mb-12 lg:mb-0 gap-4">
           <a
-            v-for="link in settings.socialMedia.socialLinks"
+            v-for="link in socialMedia.socialLinks"
             :key="link._key"
             :href="link.url"
             target="_blank"
@@ -19,7 +19,7 @@
             <NuxtLink to="/" class="hover:text-brand-red">{{ appTitle }}</NuxtLink>
           </h1>
           <p class="text-stone-200 text-sm max-w-60 lg:max-w-full mx-auto">
-            {{ settings?.footer?.tagline || 'Default tagline' }}
+            {{ footer?.tagline || 'Default tagline' }}
           </p>
         </div>
       </div>
@@ -30,12 +30,10 @@
 <script setup lang="ts">
 import type { Settings } from '~/types/sanity'
 
-const appTitle = useRuntimeConfig().public.appTitle
+defineProps<{
+  footer?: Settings['footer']
+  socialMedia?: Settings['socialMedia']
+}>()
 
-const { data: settings } = await useSanityQuery<Settings>(
-  groq`*[_type == "settings" && _id == "settings"][0]{
-    footer,
-    socialMedia
-  }`
-)
+const appTitle = useRuntimeConfig().public.appTitle
 </script>
