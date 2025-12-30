@@ -1,0 +1,85 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.output/
+.nuxt/
+.nitro/
+.cache/
+build/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+.project
+.settings/
+*.iml
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.local
+.temp/
+tmp/
+temp/
+
+# Sanity
+.sanity/
+
+# AI Agentic Services
+CLAUDE.md
+.claude/
+.cursor/
+.cursorrules
+.cursorignore
+.aider*
+.aider/
+.continue/
+.codeium/
+.tabnine/
+.copilot/
+.github/copilot/
+.windsurf/
+.bolt/
+.v0/
+.lovable/
+.devin/
+.codegen/
+.ai/
+.llm/
+rules.md
+.rules/
+AGENTS.md
+CODING_GUIDELINES.md
+AI_CONTEXT.md
