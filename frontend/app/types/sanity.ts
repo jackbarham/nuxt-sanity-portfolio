@@ -29,6 +29,7 @@ export interface Settings {
   _type: 'settings'
   defaultMeta?: {
     image?: SanityImage
+    imageUrl?: string // Resolved from GROQ: image.asset->url
     description?: string
   }
   socialMedia?: {

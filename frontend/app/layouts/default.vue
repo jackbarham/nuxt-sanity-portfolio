@@ -19,7 +19,20 @@ import type { Settings } from '~/types/sanity'
 const { data: settings } = await useSanityQuery<Settings>(
   groq`*[_type == "settings" && _id == "settings"][0]{
     footer,
-    socialMedia
+    socialMedia,
+    defaultMeta {
+      description,
+      "imageUrl": image.asset->url
+    }
   }`
 )
+
+// Set default SEO meta from Sanity settings
+useSeoMeta({
+  description: () => settings.value?.defaultMeta?.description,
+  ogDescription: () => settings.value?.defaultMeta?.description,
+  ogImage: () => settings.value?.defaultMeta?.imageUrl,
+  twitterImage: () => settings.value?.defaultMeta?.imageUrl,
+  twitterCard: 'summary_large_image',
+})
 </script>
