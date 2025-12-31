@@ -2,15 +2,31 @@ import tailwindcss from "@tailwindcss/vite"
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-30',
-  devtools: { 
-    enabled: true 
+  devtools: {
+    enabled: true
   },
   css: ['./app/assets/css/main.css'],
   modules: ['@nuxt/image'],
+
+  // Performance optimizations
+  experimental: {
+    payloadExtraction: true,
+  },
+
   vite: {
     plugins: [
       tailwindcss(),
     ],
+    build: {
+      rollupOptions: {
+        output: {
+          // Manual chunking for better caching
+          manualChunks: {
+            'vue-vendor': ['vue', 'vue-router'],
+          },
+        },
+      },
+    },
   },
   runtimeConfig: {
     public: {
