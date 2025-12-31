@@ -8,25 +8,10 @@ export default defineNuxtConfig({
   css: ['./app/assets/css/main.css'],
   modules: ['@nuxt/image'],
 
-  // Performance optimizations
-  experimental: {
-    payloadExtraction: true,
-  },
-
   vite: {
     plugins: [
       tailwindcss(),
     ],
-    build: {
-      rollupOptions: {
-        output: {
-          // Manual chunking for better caching
-          manualChunks: {
-            'vue-vendor': ['vue', 'vue-router'],
-          },
-        },
-      },
-    },
   },
   runtimeConfig: {
     public: {
@@ -36,10 +21,6 @@ export default defineNuxtConfig({
         dataset: process.env.NUXT_SANITY_DATASET,
         apiVersion: process.env.NUXT_SANITY_API_VERSION,
       },
-      sanityVisualEditing: {
-        studioUrl: process.env.NUXT_SANITY_STUDIO_URL,
-        token: process.env.NUXT_SANITY_API_READ_TOKEN || '',
-      }
     }
   },
   image: {
