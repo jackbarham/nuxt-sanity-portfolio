@@ -24,9 +24,15 @@ export interface SocialLink {
   url: string
 }
 
+export interface MainMenu {
+  title: string
+  url: string
+}
+
 export interface Settings {
   _id: string
   _type: 'settings'
+  mainMenu?: MainMenu[]
   defaultMeta?: {
     image?: SanityImage
     imageUrl?: string // Resolved from GROQ: image.asset->url

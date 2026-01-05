@@ -16,9 +16,9 @@
         <!-- Desktop Navigation -->
         <nav aria-label="Main navigation">
           <ul class="hidden md:flex md:space-x-12 lg:space-x-16 mb-0.5 items-center">
-            <li v-for="page in pages" :key="page.url">
-              <NuxtLink :to="page.url" :aria-label="page.title" class="relative group">
-                <span class="block font-heading font-medium tracking-wide text-base md:text-lg">{{ page.title }}</span>
+            <li v-for="link in menu" :key="link.url">
+              <NuxtLink :to="link.url" :aria-label="link.title" class="relative group">
+                <span class="block font-heading font-medium tracking-wide text-base md:text-lg">{{ link.title }}</span>
                 <span class="relative block">
                   <span class="absolute left-0 bottom-0 h-0.5 bg-gray-950 w-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-in-out origin-left opacity-90"></span>
                 </span>
@@ -46,18 +46,18 @@
     >
       <ul class="space-y-4">
         <li 
-          v-for="(page, index) in pages" 
-          :key="page.url"
+          v-for="(link, index) in menu" 
+          :key="link.url"
           class="transform transition-all ease-in-out duration-300"
           :class="menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'"
           :style="{ transitionDelay: menuOpen ? `${200 + (index * 150)}ms` : '0ms' }"
         >
           <NuxtLink 
-            :to="page.url" 
+            :to="link.url" 
             @click="closeMobileMenu"
-            :aria-label="page.title"
+            :aria-label="link.title"
             class="block text-3xl font-heading font-medium tracking-wide py-3"
-          >{{ page.title }}</NuxtLink>
+          >{{ link.title }}</NuxtLink>
         </li>
       </ul>
 
@@ -81,15 +81,14 @@
   </header>
 </template>
 
-<script setup>
-const appTitle = useRuntimeConfig().public.appTitle
+<script setup lang="ts">
+import type { MainMenu } from '~/types/sanity'
 
-const pages = [
-  {
-    title: 'Home',
-    url: '/'
-  },
-]
+defineProps<{
+  menu?: MainMenu[] | null
+}>()
+
+const appTitle = useRuntimeConfig().public.appTitle
 
 // Mobile menu state
 const menuOpen = ref(false)

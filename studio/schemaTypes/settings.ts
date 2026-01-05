@@ -8,6 +8,18 @@ export const settings = defineType({
   icon: CogIcon,
   fields: [
     defineField({
+      name: 'mainMenu',
+      title: 'Main Menu',
+      type: 'array',
+      description: 'Pages to display in the main navigation',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'page' }],
+        }),
+      ],
+    }),
+    defineField({
       name: 'defaultMeta',
       title: 'Default Meta',
       type: 'object',
