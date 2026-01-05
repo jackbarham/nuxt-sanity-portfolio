@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   },
   css: ['./app/assets/css/main.css'],
   modules: ['@nuxt/image'],
+  components: [
+    { path: '~/components', global: true },
+  ],
 
   vite: {
     plugins: [

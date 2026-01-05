@@ -19,14 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Component } from 'vue'
 import type { Page } from '~/types/sanity'
-import TextBlock from '~/components/TextBlock.vue'
-
-// Map Sanity _type to Vue component
-const blockComponents: Record<string, Component> = {
-  textBlock: TextBlock,
-}
 
 const route = useRoute()
 const slug = route.params.slug
@@ -56,12 +49,7 @@ const { data: page } = await useSanityQuery<Page>(groq`
 
 // Check if in development mode
 const isDev = import.meta.dev
-
-// Resolve block component by Sanity _type
-const getBlockComponent = (type: string): Component | null => {
-  if (!type) return null
-  return blockComponents[type] ?? null
-}
+const { resolve: getBlockComponent } = useBlockResolver()
 
 useSeoMeta({
   title: () => page.value?.title,
