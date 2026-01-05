@@ -6,7 +6,10 @@ export default defineNuxtConfig({
     enabled: true
   },
   css: ['./app/assets/css/main.css'],
-  modules: ['@nuxt/image'],
+  modules: [
+    '@nuxt/image',
+    'nuxt-svgo',
+  ],
   components: [
     { path: '~/components', global: true },
   ],

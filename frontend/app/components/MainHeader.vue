@@ -29,8 +29,8 @@
         
         <!-- Toggle Menu Button -->
         <div @click="toggleMobileMenu()" class="relative z-50 visible md:hidden w-8 h-8 cursor-pointer">
-          <!-- <svgo-burger v-if="!menuOpen" filled class="text-gray-950" />
-          <svgo-close v-else filled class="text-gray-950" /> -->
+          <svgo-burger v-if="!menuOpen" filled class="text-gray-950" />
+          <svgo-close v-else filled class="text-gray-950" />
         </div>
         
       </div>
