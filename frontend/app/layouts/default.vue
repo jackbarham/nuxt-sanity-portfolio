@@ -28,11 +28,8 @@ const { data: settings } = await useSanityQuery<Settings>(
 )
 
 // Set default SEO meta from Sanity settings
-useSeoMeta({
+useCustomSeoMeta({
   description: () => settings.value?.defaultMeta?.description,
-  ogDescription: () => settings.value?.defaultMeta?.description,
-  ogImage: () => settings.value?.defaultMeta?.imageUrl,
-  twitterImage: () => settings.value?.defaultMeta?.imageUrl,
-  twitterCard: 'summary_large_image',
+  image: () => settings.value?.defaultMeta?.imageUrl,
 })
 </script>

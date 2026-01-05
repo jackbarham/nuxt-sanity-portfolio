@@ -51,11 +51,9 @@ const { data: page } = await useSanityQuery<Page>(groq`
 const isDev = import.meta.dev
 const { resolve: getBlockComponent } = useBlockResolver()
 
-useSeoMeta({
+useCustomSeoMeta({
   title: () => page.value?.title,
-  ogTitle: () => page.value?.title,
   description: () => page.value?.pageMeta?.description,
-  ogDescription: () => page.value?.pageMeta?.description,
-  ogImage: () => page.value?.pageMeta?.image?.asset?.url,
+  image: () => page.value?.pageMeta?.image?.asset?.url,
 })
 </script>
