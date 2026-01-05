@@ -1,8 +1,16 @@
 <template>
   <div>
     <template v-if="page">
-      <h1>{{ page.title }}</h1>
-      <!-- Components will be rendered here once built -->
+      <template v-for="block in page.components" :key="block._key">
+        <component
+          v-if="getBlockComponent(block._type)"
+          :is="getBlockComponent(block._type)"
+          v-bind="block"
+        />
+        <div v-else-if="isDev" class="p-4 bg-yellow-100 border border-yellow-400 text-yellow-800">
+          Unknown block type: <strong>{{ block._type }}</strong>
+        </div>
+      </template>
     </template>
     <template v-else>
       <h1>Page not found</h1>
@@ -31,9 +39,24 @@ const { data: page } = await useSanityQuery<Page>(groq`
         asset->{url}
       }
     },
-    components
+    components[]{
+      ...,
+      _type,
+      _key
+    }
   }
 `, { slug })
+
+// Check if in development mode
+const isDev = import.meta.dev
+
+// Resolve block component by Sanity _type
+// e.g., "hero" → "Hero", "textBlock" → "TextBlock"
+const getBlockComponent = (type: string) => {
+  if (!type) return null
+  const name = type.charAt(0).toUpperCase() + type.slice(1)
+  return resolveComponent(name)
+}
 
 useSeoMeta({
   title: () => page.value?.title,

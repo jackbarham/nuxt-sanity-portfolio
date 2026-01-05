@@ -40,6 +40,17 @@ export interface Settings {
   }
 }
 
+// Base type for all page builder blocks
+export interface BlockBase {
+  _type: string
+  _key: string
+}
+
+// Add specific block types here as you create them
+// e.g., export interface HeroBlock extends BlockBase { ... }
+
+export type Block = BlockBase // Union with specific blocks: BlockBase | HeroBlock | TextBlock
+
 export interface Page {
   _id: string
   title: string
@@ -52,5 +63,5 @@ export interface Page {
     }
     description?: string
   }
-  components?: unknown[]
+  components?: Block[]
 }
