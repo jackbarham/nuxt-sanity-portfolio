@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
     projectId: config.public.sanity.projectId,
     dataset: config.public.sanity.dataset,
     apiVersion: config.public.sanity.apiVersion,
-    useCdn: true,
+    useCdn: !import.meta.dev,
   })
 
   return client.fetch(query, params)
