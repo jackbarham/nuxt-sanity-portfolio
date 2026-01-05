@@ -11,6 +11,9 @@ importers:
       '@nuxt/image':
         specifier: 2.0.0
         version: 2.0.0(db0@0.3.4)(ioredis@5.8.2)(magicast@0.5.1)
+      '@portabletext/vue':
+        specifier: ^1.0.14
+        version: 1.0.14(vue@3.5.26)
       '@sanity/client':
         specifier: ^7.13.2
         version: 7.13.2
@@ -29,6 +32,10 @@ importers:
       vue-router:
         specifier: ^4.6.4
         version: 4.6.4(vue@3.5.26)
+    devDependencies:
+      '@portabletext/types':
+        specifier: ^4.0.1
+        version: 4.0.1
 
 packages:
 
@@ -1135,6 +1142,23 @@ packages:
 
   '@poppinss/exception@1.2.3':
     resolution: {integrity: sha512-dCED+QRChTVatE9ibtoaxc+WkdzOSjYTKi/+uacHWIsfodVfpsueo3+DKpgU5Px8qXjgmXkSvhXvSCz3fnP9lw==}
+
+  '@portabletext/toolkit@2.0.18':
+    resolution: {integrity: sha512-m3v2WwKQTNNk5BFZlUuPuCW0Zi6iDSpwrium4Ej5L2FHDXhFuwAyEMPXDrvwPvqjES/oJzcwmdKLMhYa44T9BQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+
+  '@portabletext/types@2.0.15':
+    resolution: {integrity: sha512-2e6i2gSQsrA/5OL5Gm4/9bxB9MNO73Fa47zj+0mT93xkoQUCGCWX5fZh1YBJ86hszaRYlqvqG08oULxvvPPp/Q==}
+    engines: {node: ^14.13.1 || >=16.0.0 || >=18.0.0}
+
+  '@portabletext/types@4.0.1':
+    resolution: {integrity: sha512-L8PZjVjmdKpW+82c1oNqGMqCOtQD2xORqJfr6Is7X5XXbz38eLYY79IM/1ok+Esf/iGOPtEYORdcf0ETmsWYew==}
+    engines: {node: '>=20.19 <22 || >=22.12'}
+
+  '@portabletext/vue@1.0.14':
+    resolution: {integrity: sha512-piVkECB5RpiLa4+i4aYrtYXp/N9y0V20JYoulOKXQ/ptc35Ql7GkhFzw1vmn7IexhNvHjX1NMzrKUg1mPInynA==}
+    peerDependencies:
+      vue: ^3.3.4
 
   '@rolldown/pluginutils@1.0.0-beta.53':
     resolution: {integrity: sha512-vENRlFU4YbrwVqNDZ7fLvy+JR1CRkyr01jhSiDpE1u6py3OMzQfztQU2jxykW3ALNxO4kSlqIDeYyD0Y9RcQeQ==}
@@ -4802,6 +4826,20 @@ snapshots:
       supports-color: 10.2.2
 
   '@poppinss/exception@1.2.3': {}
+
+  '@portabletext/toolkit@2.0.18':
+    dependencies:
+      '@portabletext/types': 2.0.15
+
+  '@portabletext/types@2.0.15': {}
+
+  '@portabletext/types@4.0.1': {}
+
+  '@portabletext/vue@1.0.14(vue@3.5.26)':
+    dependencies:
+      '@portabletext/toolkit': 2.0.18
+      '@portabletext/types': 2.0.15
+      vue: 3.5.26
 
   '@rolldown/pluginutils@1.0.0-beta.53': {}
 

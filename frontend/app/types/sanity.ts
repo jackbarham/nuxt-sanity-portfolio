@@ -46,10 +46,22 @@ export interface BlockBase {
   _key: string
 }
 
-// Add specific block types here as you create them
-// e.g., export interface HeroBlock extends BlockBase { ... }
+// Block types
+export interface TextBlock extends BlockBase {
+  _type: 'textBlock'
+  heading?: string
+  content?: PortableTextBlock[]
+}
 
-export type Block = BlockBase // Union with specific blocks: BlockBase | HeroBlock | TextBlock
+export type Block = TextBlock // Add more: TextBlock | HeroBlock | GalleryBlock
+
+// Portable Text block type (simplified)
+export interface PortableTextBlock {
+  _type: string
+  _key: string
+  children?: Array<{ text: string }>
+  [key: string]: unknown
+}
 
 export interface Page {
   _id: string

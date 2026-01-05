@@ -11,11 +11,15 @@
   },
   "dependencies": {
     "@nuxt/image": "2.0.0",
+    "@portabletext/vue": "^1.0.14",
     "@sanity/client": "^7.13.2",
     "@tailwindcss/vite": "^4.1.18",
     "nuxt": "^4.2.2",
     "tailwindcss": "^4.1.18",
     "vue": "^3.5.26",
     "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@portabletext/types": "^4.0.1"
   }
 }
