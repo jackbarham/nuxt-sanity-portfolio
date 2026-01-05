@@ -11,20 +11,7 @@
 </template>
 
 <script setup lang="ts">
-interface Page {
-  _id: string
-  title: string
-  slug: { current: string }
-  pageMeta?: {
-    image?: {
-      asset?: {
-        url: string
-      }
-    }
-    description?: string
-  }
-  components?: unknown[]
-}
+import type { Page } from '~/types/sanity'
 
 const route = useRoute()
 const slug = route.params.slug
