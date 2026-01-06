@@ -5,11 +5,6 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true
   },
-
-  // Enable Nitro compression for smaller assets
-  nitro: {
-    compressPublicAssets: true,
-  },
   css: ['./app/assets/css/main.css'],
   modules: [
     '@nuxt/image',
@@ -18,25 +13,10 @@ export default defineNuxtConfig({
   components: [
     { path: '~/components', global: true },
   ],
-
   vite: {
     plugins: [
       tailwindcss(),
-    ],
-    build: {
-      // Enable CSS code splitting - loads CSS per route
-      cssCodeSplit: true,
-      // Optimize chunk sizes
-      rollupOptions: {
-        output: {
-          // Split vendor chunks for better caching
-          manualChunks: {
-            'sanity': ['@sanity/client'],
-            'portable-text': ['@portabletext/vue'],
-          },
-        },
-      },
-    },
+    ]
   },
   runtimeConfig: {
     public: {
@@ -76,10 +56,7 @@ export default defineNuxtConfig({
           type: 'image/png',
           href: '/favicon.png?v=1'
         },
-        // Preconnect to Sanity CDN for faster asset loading
-        { rel: 'preconnect', href: 'https://cdn.sanity.io', crossorigin: '' },
-        { rel: 'dns-prefetch', href: 'https://cdn.sanity.io' },
-      ],
+      ]
     }
   }
 })
