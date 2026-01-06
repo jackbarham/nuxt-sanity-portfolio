@@ -28,11 +28,12 @@ const slug = route.params.slug
     : route.params.slug
   : 'home'
 
-const { data: page } = await useSanityQuery<Page>(groq`
+const { data: page } = await useSanityQuery<Page & { siteTitle?: string }>(groq`
   *[_type == "page" && slug.current == $slug][0]{
     _id,
     title,
     slug,
+    "siteTitle": *[_type == "settings" && _id == "settings"][0].siteTitle,
     pageMeta{
       description,
       image{
@@ -53,6 +54,7 @@ const { resolve: getBlockComponent } = useBlockResolver()
 
 // Override default SEO meta for each page
 useCustomSeoMeta({
+  siteTitle: () => page.value?.siteTitle,
   title: () => page.value?.title,
   description: () => page.value?.pageMeta?.description,
   image: () => page.value?.pageMeta?.image?.asset?.url,

@@ -16,7 +16,7 @@ export default defineConfig({
   },
 
   plugins: [
-    structureTool({structure}),
+    structureTool({ structure }),
     visionTool()
   ],
 

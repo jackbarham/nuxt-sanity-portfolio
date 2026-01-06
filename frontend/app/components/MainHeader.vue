@@ -10,7 +10,7 @@
         
         <!-- Title -->
         <h1 class="text-lg md:text-2xl font-heading mb-0.5 md:mb-1">
-          <NuxtLink to="/" @click="closeMobileMenu()">{{ appTitle }}</NuxtLink>
+          <NuxtLink to="/" @click="closeMobileMenu()">{{ siteTitle }}</NuxtLink>
         </h1>
         
         <!-- Desktop Navigation -->
@@ -95,10 +95,9 @@ const HEADER_HEIGHT = 64
 const SCROLL_THRESHOLD = 50
 
 defineProps<{
+  siteTitle?: string | null
   menu?: MainMenu[] | null
 }>()
-
-const appTitle = useRuntimeConfig().public.appTitle
 
 // Mobile menu state
 const menuOpen = ref(false)

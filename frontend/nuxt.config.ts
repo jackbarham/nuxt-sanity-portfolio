@@ -21,7 +21,6 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      appTitle: process.env.NUXT_APP_TITLE || 'App Title',
       sanity: {
         projectId: process.env.NUXT_SANITY_PROJECT_ID,
         dataset: process.env.NUXT_SANITY_DATASET,

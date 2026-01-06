@@ -1,5 +1,5 @@
-import type {StructureResolver} from 'sanity/structure'
-import {CogIcon} from '@sanity/icons'
+import type { StructureResolver } from 'sanity/structure'
+import { CogIcon } from '@sanity/icons'
 
 export const structure: StructureResolver = (S) =>
   S.list()

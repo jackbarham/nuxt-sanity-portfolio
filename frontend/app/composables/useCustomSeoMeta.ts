@@ -1,17 +1,23 @@
-// Sets up SEO meta tags with optional title suffix from appTitle
+// Sets up SEO meta tags with optional title suffix from siteTitle
 
 interface SeoMetaOptions {
+  siteTitle?: () => string | undefined
   title?: () => string | undefined
   description?: () => string | undefined
   image?: () => string | undefined
 }
 
 export function useCustomSeoMeta(options: SeoMetaOptions) {
-  const { appTitle } = useRuntimeConfig().public
+  const formatTitle = () => {
+    const title = options.title?.()
+    const siteTitle = options.siteTitle?.()
+    if (title && siteTitle) return `${title} - ${siteTitle}`
+    return title || siteTitle
+  }
 
   useSeoMeta({
-    title: options.title ? () => `${options.title!()} - ${appTitle}` : undefined,
-    ogTitle: options.title ? () => `${options.title!()} - ${appTitle}` : undefined,
+    title: formatTitle,
+    ogTitle: formatTitle,
     description: options.description,
     ogDescription: options.description,
     ogImage: options.image,

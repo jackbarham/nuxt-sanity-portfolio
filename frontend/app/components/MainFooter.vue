@@ -16,7 +16,7 @@
         </div>
         <div class="text-center lg:text-left">
           <h1 class="text-2xl text-stone-50 font-heading mb-2">
-            <NuxtLink to="/" class="hover:text-brand-red">{{ appTitle }}</NuxtLink>
+            <NuxtLink to="/" class="hover:text-brand-red">{{ siteTitle }}</NuxtLink>
           </h1>
           <p class="text-stone-200 text-sm max-w-60 lg:max-w-full mx-auto">
             {{ footer?.tagline || 'Default tagline' }}
@@ -31,9 +31,8 @@
 import type { Settings } from '~/types/sanity'
 
 defineProps<{
+  siteTitle?: string | null
   footer?: Settings['footer']
   socialMedia?: Settings['socialMedia']
 }>()
-
-const appTitle = useRuntimeConfig().public.appTitle
 </script>

@@ -34,6 +34,7 @@ export interface MainMenu {
 export interface Settings {
   _id: string
   _type: 'settings'
+  siteTitle?: string
   mainMenu?: MainMenu[]
   defaultMeta?: {
     image?: SanityImage

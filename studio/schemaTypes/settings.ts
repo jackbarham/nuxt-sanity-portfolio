@@ -8,6 +8,13 @@ export const settings = defineType({
   icon: CogIcon,
   fields: [
     defineField({
+      name: 'siteTitle',
+      title: 'Site Title',
+      type: 'string',
+      description: 'The website title displayed in the header',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'mainMenu',
       title: 'Main Menu',
       type: 'array',
