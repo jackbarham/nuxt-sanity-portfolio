@@ -28,21 +28,27 @@
         </nav>
         
         <!-- Toggle Menu Button -->
-        <div @click="toggleMobileMenu()" class="relative z-50 visible md:hidden w-8 h-8 cursor-pointer">
+        <button
+          @click="toggleMobileMenu()"
+          :aria-expanded="menuOpen"
+          aria-controls="mobile-navigation"
+          aria-label="Toggle menu"
+          class="relative z-50 visible md:hidden w-8 h-8 cursor-pointer"
+        >
           <svgo-burger v-if="!menuOpen" filled class="text-gray-950" />
           <svgo-close v-else filled class="text-gray-950" />
-        </div>
+        </button>
         
       </div>
     </div>
     
     <!-- Mobile Navigation -->
-    <nav 
+    <nav
       aria-label="Mobile navigation"
-      :id="menuOpen ? 'mobile-navigation' : undefined"
+      id="mobile-navigation"
       class="absolute -z-10 left-0 w-full bg-stone-50 p-12 transform transition-transform ease-in-out duration-200"
       :class="menuOpen ? 'translate-y-0' : '-translate-y-full'"
-      :style="{ top: '64px', height: 'calc(100dvh - 64px)' }"
+      :style="{ top: `${HEADER_HEIGHT}px`, height: `calc(100dvh - ${HEADER_HEIGHT}px)` }"
     >
       <ul class="space-y-4">
         <li 
@@ -84,6 +90,10 @@
 <script setup lang="ts">
 import type { MainMenu } from '~/types/sanity'
 
+// Constants (px)
+const HEADER_HEIGHT = 64
+const SCROLL_THRESHOLD = 50
+
 defineProps<{
   menu?: MainMenu[] | null
 }>()
@@ -96,29 +106,22 @@ const menuOpen = ref(false)
 // Header visibility state
 const headerVisible = ref(true)
 const lastScrollY = ref(0)
-const scrollDirection = ref('up')
 
 // Mobile menu functions
 const toggleMobileMenu = () => {
   menuOpen.value = !menuOpen.value
-  updateBodyClass()
 }
 
 const closeMobileMenu = () => {
   menuOpen.value = false
-  updateBodyClass()
 }
 
-// Lock/unlock body scroll
-const updateBodyClass = () => {
+// Lock/unlock body scroll when menu state changes
+watchEffect(() => {
   if (import.meta.client) {
-    if (menuOpen.value) {
-      document.body.classList.add('overflow-hidden')
-    } else {
-      document.body.classList.remove('overflow-hidden')
-    }
+    document.body.classList.toggle('overflow-hidden', menuOpen.value)
   }
-}
+})
 
 // Close menu when route changes
 const router = useRouter()
@@ -129,27 +132,25 @@ router.afterEach(() => {
 // Handle scroll for header show/hide
 const handleScroll = () => {
   if (!import.meta.client) return
-  
+
   const currentScrollY = window.scrollY
-  
+
   // At top of page - always show header
-  if (currentScrollY <= 50) {
+  if (currentScrollY <= SCROLL_THRESHOLD) {
     headerVisible.value = true
     lastScrollY.value = currentScrollY
     return
   }
-  
+
   // Determine scroll direction
   if (currentScrollY > lastScrollY.value) {
     // Scrolling down - hide header
-    scrollDirection.value = 'down'
     headerVisible.value = false
   } else if (currentScrollY < lastScrollY.value) {
     // Scrolling up - show header
-    scrollDirection.value = 'up'
     headerVisible.value = true
   }
-  
+
   lastScrollY.value = currentScrollY
 }
 
