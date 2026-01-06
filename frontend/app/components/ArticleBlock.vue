@@ -1,7 +1,9 @@
 <template>
   <section class="article-block">
-    <div class="prose">
-      <PortableText v-if="content" :value="content" :components="portableTextComponents" />
+    <div class="max-w-3xl mx-auto">
+      <div class="prose">
+        <PortableText v-if="content" :value="content" :components="portableTextComponents" />
+      </div>
     </div>
   </section>
 </template>

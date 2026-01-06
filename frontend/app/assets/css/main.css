@@ -16,8 +16,8 @@
   --color-brand-purple: #5122e1;
   --color-brand-grey-light: #f7f7f7;
   
-  /* --font-family-heading: "Transducer Variable", system-ui, sans-serif;
-  --font-family-body: "inter", system-ui, sans-serif; */
+  /* --font-family-heading: "Transducer Variable", system-ui, sans-serif; */
+  /* --font-family-body: "inter", system-ui, sans-serif; */
   --font-family-heading: system-ui, sans-serif;
   --font-family-body: system-ui, sans-serif;
 }
@@ -46,9 +46,9 @@
     @apply max-w-full h-auto;
   }
 
-  /* a {
+  a {
     @apply transition-colors;
-  } */
+  }
 }
 
 @layer components {
@@ -57,52 +57,18 @@
   }
 
   .layout-wide {
-    /* @apply max-w-370 w-full m-auto px-4 sm:px-8 lg:px-12 xl:px-16; */
-    @apply max-w-4xl w-full m-auto px-4 sm:px-8 lg:px-12 xl:px-16;
+    @apply max-w-370 w-full m-auto px-4 sm:px-8 lg:px-12 xl:px-16;
   }
 
+  /*
+  * Tailwind Prose overrides
+  */
   .prose {
-    @apply max-w-none text-lg/7! text-black!;
-    /* --prose-link-color: theme(--color-brand-red-dark); */
+    @apply max-w-full! text-[17px]/7! text-gray-950!;
   }
 
   .prose a {
-    @apply font-normal border-b-2 border-transparent transition-colors hover:border-brand-red-dark/85 !no-underline;
-    /* color: var(--prose-link-color) !important; */
-  }
-
-  .prose p {
-    /* @apply !font-medium; */
-  }
-
-  .prose b {
-    @apply font-bold!;
-  }
-  
-  .prose blockquote p:first-of-type::before,
-  .prose blockquote p:first-of-type::after {
-    content: none;
-  }
-
-  .prose-article {
-    @apply mx-auto max-w-170!;
-  }
-
-  /* .prose-article li p {
-    @apply my-1.5;
-  } */
-
-  .prose-article h1, 
-  .prose-article h2, 
-  .prose-article h3, 
-  .prose-article h4,
-  .prose-article h5, 
-  .prose-article h6 {
-    @apply !mb-6;
-  }
-
-  .prose-article h1 {
-    @apply !text-3xl;
+    @apply font-normal! text-blue-700! border-b border-transparent transition-colors hover:border-blue-600 no-underline!;
   }
 }
 
@@ -118,15 +84,6 @@
   .last\:mb-0:last-child {
     margin-bottom: 0;
   }
-
-  /* Utility to override prose link colors */
-  .prose-links-white {
-    --prose-link-color: white;
-  }
-
-  /* .prose-links-red {
-    --prose-link-color: theme(--color-brand-red);
-  } */
 }
 
 /* Nuxt SVGO base styles */
