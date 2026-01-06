@@ -70,6 +70,10 @@
   .prose a {
     @apply font-normal! text-blue-700! border-b border-transparent transition-colors hover:border-blue-600 no-underline!;
   }
+
+  .prose ul li {
+    @apply my-1.5!;
+  }
 }
 
 @layer utilities {
