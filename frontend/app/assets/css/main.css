@@ -1,5 +1,5 @@
 @import "tailwindcss";
-/* @plugin "@tailwindcss/typography"; */
+@plugin "@tailwindcss/typography";
 
 @theme {
   --breakpoint-xs: 430px;
@@ -40,6 +40,10 @@
 
   button {
     @apply hover:cursor-pointer;
+  }
+
+  img {
+    @apply max-w-full h-auto;
   }
 
   /* a {

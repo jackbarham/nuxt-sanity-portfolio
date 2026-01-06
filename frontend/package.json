@@ -21,6 +21,7 @@
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@portabletext/types": "^4.0.1"
+    "@portabletext/types": "^4.0.1",
+    "@tailwindcss/typography": "^0.5.19"
   }
 }

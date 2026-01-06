@@ -1,6 +1,8 @@
 <template>
   <section class="article-block">
-    <PortableText v-if="content" :value="content" :components="portableTextComponents" />
+    <div class="prose">
+      <PortableText v-if="content" :value="content" :components="portableTextComponents" />
+    </div>
   </section>
 </template>
 
@@ -45,7 +47,7 @@ const PortableTextImage = defineComponent({
               alt: props.value?.alt || '',
               sizes: '100vw sm:100vw md:780px',
               loading: 'lazy',
-              class: 'w-full',
+              class: 'rounded-lg',
             }),
             props.value?.caption
               ? h('figcaption', props.value.caption)
