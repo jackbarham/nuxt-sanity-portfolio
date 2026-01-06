@@ -31,7 +31,7 @@ const { data: settings } = await useSanityQuery<Settings>(
   }`
 )
 
-// Set default SEO meta from Sanity settings
+// Set default SEO meta from CMS settings
 useCustomSeoMeta({
   description: () => settings.value?.defaultMeta?.description,
   image: () => settings.value?.defaultMeta?.imageUrl,

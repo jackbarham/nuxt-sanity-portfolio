@@ -51,6 +51,7 @@ const { data: page } = await useSanityQuery<Page>(groq`
 const isDev = import.meta.dev
 const { resolve: getBlockComponent } = useBlockResolver()
 
+// Override default SEO meta for each page
 useCustomSeoMeta({
   title: () => page.value?.title,
   description: () => page.value?.pageMeta?.description,

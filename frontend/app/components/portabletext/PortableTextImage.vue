@@ -15,23 +15,13 @@
 </template>
 
 <script setup lang="ts">
-interface SanityImageAsset {
-  _ref: string
-  _type: string
-}
-
-interface SanityImage {
-  _type: string
-  asset: SanityImageAsset
-  alt?: string
-  caption?: string
-}
+import type { SanityImage } from '~/types/sanity'
 
 const props = defineProps<{
   value: SanityImage
 }>()
 
-const { imageWidth, imageHeight } = useImageDimensions()
-
 const imageId = computed(() => props.value?.asset?._ref || '')
+
+const { imageWidth, imageHeight } = useImageDimensions()
 </script>

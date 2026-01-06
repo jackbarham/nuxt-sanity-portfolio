@@ -4,6 +4,8 @@ export interface SanityImage {
     _ref: string
     _type: 'reference'
   }
+  alt?: string
+  caption?: string
   hotspot?: {
     x: number
     y: number
