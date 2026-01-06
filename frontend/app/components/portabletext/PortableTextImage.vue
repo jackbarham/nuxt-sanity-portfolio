@@ -3,10 +3,12 @@
     <NuxtImg
       provider="sanity"
       :src="imageId"
+      :width="imageWidth(imageId)"
+      :height="imageHeight(imageId)"
       :alt="value?.alt || ''"
       sizes="100vw sm:100vw md:780px"
       loading="lazy"
-      class="rounded-lg"
+      class="rounded-lg bg-gray-100"
     />
     <figcaption v-if="value?.caption" class="text-center">{{ value.caption }}</figcaption>
   </figure>
@@ -28,6 +30,8 @@ interface SanityImage {
 const props = defineProps<{
   value: SanityImage
 }>()
+
+const { imageWidth, imageHeight } = useImageDimensions()
 
 const imageId = computed(() => props.value?.asset?._ref || '')
 </script>
