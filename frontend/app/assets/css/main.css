@@ -68,7 +68,7 @@
   }
 
   .prose a {
-    @apply font-normal! text-blue-700! border-b border-transparent transition-colors hover:border-blue-600 no-underline!;
+    @apply font-normal! border-b-2 border-gray-300 hover:border-gray-700 transition-colors no-underline!;
   }
 
   .prose ul li {
