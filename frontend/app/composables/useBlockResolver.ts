@@ -1,6 +1,6 @@
 /**
  * Resolves Sanity block types to Vue components
- * Converts camelCase _type (e.g. "articleBlock") to PascalCase component name (e.g. "ArticleBlock")
+ * Converts camelCase _type - e.g. "blockName" to PascalCase "BlockName"
  */
 export function useBlockResolver() {
   const resolve = (type: string) => {
