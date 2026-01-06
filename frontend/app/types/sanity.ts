@@ -53,13 +53,12 @@ export interface BlockBase {
 }
 
 // Block types
-export interface TextBlock extends BlockBase {
-  _type: 'textBlock'
-  heading?: string
+export interface ArticleBlock extends BlockBase {
+  _type: 'articleBlock'
   content?: PortableTextBlock[]
 }
 
-export type Block = TextBlock // Add more: TextBlock | HeroBlock | GalleryBlock
+export type Block = ArticleBlock // Add more: ArticleBlock | HeroBlock | GalleryBlock
 
 // Portable Text block type (simplified)
 export interface PortableTextBlock {

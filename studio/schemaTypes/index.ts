@@ -1,5 +1,5 @@
 import { page } from './page'
 import { settings } from './settings'
-import { textBlock } from './textBlock'
+import { articleBlock } from './articleBlock'
 
-export const schemaTypes = [page, settings, textBlock]
+export const schemaTypes = [page, settings, articleBlock]
