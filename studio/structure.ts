@@ -1,5 +1,5 @@
 import type { StructureResolver } from 'sanity/structure'
-import { CogIcon, DocumentsIcon, TagIcon } from '@sanity/icons'
+import { CogIcon, DocumentsIcon, ProjectsIcon, TagIcon } from '@sanity/icons'
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -24,5 +24,11 @@ export const structure: StructureResolver = (S) =>
         .title('Pages')
         .icon(DocumentsIcon)
         .child(S.documentTypeList('page').title('Pages')),
+
+      // Portfolio
+      S.listItem()
+        .title('Portfolio')
+        .icon(ProjectsIcon)
+        .child(S.documentTypeList('portfolio').title('Portfolio')),
         
     ])

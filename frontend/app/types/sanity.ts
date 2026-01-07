@@ -85,3 +85,29 @@ export interface Page {
   }
   components?: Block[]
 }
+
+export interface Portfolio {
+  _id: string
+  title: string
+  slug: { current: string }
+  previewImage?: {
+    asset?: {
+      url: string
+    }
+  }
+  tagline?: string
+  vimeoId?: string
+  gallery?: Array<{
+    _key: string
+    alt?: string
+    asset?: {
+      _ref: string
+    }
+  }>
+  intro?: string
+  client?: PortableTextBlock[]
+  scope?: PortableTextBlock[]
+  technology?: string
+  role?: string
+  published?: string
+}
