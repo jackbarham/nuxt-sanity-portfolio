@@ -1,5 +1,5 @@
 import type { StructureResolver } from 'sanity/structure'
-import { CogIcon } from '@sanity/icons'
+import { CogIcon, DocumentsIcon, TagIcon } from '@sanity/icons'
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -11,10 +11,18 @@ export const structure: StructureResolver = (S) =>
         .icon(CogIcon)
         .child(S.document().schemaType('settings').documentId('settings')),
 
+      // Media Tags
+      S.listItem()
+        .title('Media Tags')
+        .icon(TagIcon)
+        .child(S.documentTypeList('media.tag').title('Media Tags')),
+
       S.divider(),
 
-      // All other document types (excluding settings from the default list)
-      ...S.documentTypeListItems().filter(
-        (listItem) => !['settings'].includes(listItem.getId() ?? '')
-      ),
+      // Pages
+      S.listItem()
+        .title('Pages')
+        .icon(DocumentsIcon)
+        .child(S.documentTypeList('page').title('Pages')),
+        
     ])
