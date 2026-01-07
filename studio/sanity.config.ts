@@ -18,8 +18,8 @@ export default defineConfig({
 
   plugins: [
     structureTool({ structure }),
-    visionTool(),
-    media()
+    media(),
+    ...(process.env.NODE_ENV === 'development' ? [visionTool()] : []),
   ],
 
   schema: {
