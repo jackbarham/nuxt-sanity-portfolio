@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col h-screen">
     <MainHeader :site-title="settings?.siteTitle" :menu="settings?.mainMenu" />
-    <main role="main" class="flex-1 pt-16 md:pt-18 relative layout-wide">
+    <main role="main" class="flex-1 pt-16 md:pt-18 relative">
       <div class="relative min-h-full py-16">
         <slot />
       </div>
