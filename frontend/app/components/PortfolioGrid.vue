@@ -2,7 +2,7 @@
   <section class="portfolio-grid">
     <div class="max-w-lg md:max-w-full mx-auto">
       <div class="grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
-        <div v-for="(post, index) in posts" :key="post._id">
+        <div v-for="post in posts" :key="post._id">
           <NuxtLink :to="`/portfolio/${post.slug?.current}`" class="block group">
             <div class="relative aspect-3/2 mb-2 bg-gray-100 rounded-md overflow-hidden">
               <NuxtImg
@@ -11,7 +11,7 @@
                 :src="post.previewImage.asset._ref"
                 :width="imageWidth(post.previewImage.asset._ref)"
                 :height="imageHeight(post.previewImage.asset._ref)"
-                :loading="index === 0 ? 'eager' : 'lazy'"
+                loading="lazy"
                 :alt="post.title"
                 sizes="100vw md:50vw xl:33vw"
                 class="w-full h-full object-cover opacity-100 group-hover:opacity-80 transition-opacity duration-200"
