@@ -61,7 +61,7 @@ export interface ArticleBlock extends BlockBase {
   content?: PortableTextBlock[]
 }
 
-export type Block = ArticleBlock // Add more: ArticleBlock | HeroBlock | GalleryBlock
+export type Block = ArticleBlock | PortfolioFeedBlock
 
 // Portable Text block type (simplified)
 export interface PortableTextBlock {
@@ -110,4 +110,35 @@ export interface Portfolio {
   technology?: string
   role?: string
   published?: string
+}
+
+// Portfolio preview for grid/feed display
+export interface PortfolioPreview {
+  _id: string
+  title: string
+  slug: { current: string }
+  tagline?: string
+  previewImage?: {
+    asset?: {
+      _ref?: string
+      url?: string
+    }
+  }
+}
+
+// Portfolio Feed block type
+export interface PortfolioFeedBlock extends BlockBase {
+  _type: 'portfolioFeed'
+  heading?: string
+  intro?: string
+  buttonCta?: {
+    text?: string
+    link?: {
+      _ref?: string
+      slug?: { current: string }
+    }
+  }
+  feedType?: 'latest' | 'manual'
+  selectedItems?: PortfolioPreview[]
+  displayCount?: '3' | '6' | 'all'
 }

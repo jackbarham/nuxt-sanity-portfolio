@@ -43,7 +43,26 @@ const { data: page } = await useSanityQuery<Page & { siteTitle?: string }>(groq`
     components[]{
       ...,
       _type,
-      _key
+      _key,
+      // Expand portfolioFeed references
+      _type == "portfolioFeed" => {
+        buttonCta{
+          text,
+          link->{
+            _id,
+            slug
+          }
+        },
+        selectedItems[]->{
+          _id,
+          title,
+          slug,
+          tagline,
+          previewImage{
+            asset
+          }
+        }
+      }
     }
   }
 `, { slug })

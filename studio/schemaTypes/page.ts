@@ -52,7 +52,7 @@ export const page = defineType({
       name: 'components',
       title: 'Components',
       type: 'array',
-      of: [{ type: 'articleBlock' }],
+      of: [{ type: 'articleBlock' }, { type: 'portfolioFeed' }],
     }),
   ],
   preview: {
