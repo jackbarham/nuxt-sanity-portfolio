@@ -63,37 +63,26 @@ interface Props {
 
 const props = defineProps<Props>()
 
-// Fetch all portfolio items for "latest" mode
-const { data: allPortfolio } = await useSanityQuery<PortfolioPreview[]>(groq`
-  *[_type == "portfolio"] | order(_createdAt desc) {
-    _id,
-    title,
-    slug,
-    tagline,
-    previewImage{
-      asset
-    }
-  }
-`)
+// Only fetch latest items when in "latest" mode
+const limit = props.displayCount === 'all' ? 100 : parseInt(props.displayCount || '3', 10)
 
-// Compute the posts to display based on feedType and displayCount
+const { data: latestPortfolio } = props.feedType === 'latest'
+  ? await useSanityQuery<PortfolioPreview[]>(groq`
+      *[_type == "portfolio"] | order(_createdAt desc) [0...$limit] {
+        _id,
+        title,
+        slug,
+        tagline,
+        previewImage { asset }
+      }
+    `, { limit })
+  : { data: ref([]) }
+
+// Use selected items for manual mode, fetched items for latest mode
 const displayedPosts = computed(() => {
-  let posts: PortfolioPreview[] = []
-
-  if (props.feedType === 'manual' && props.selectedItems?.length) {
-    // Use manually selected items in their specified order
-    posts = props.selectedItems
-  } else {
-    // Use latest items from the query
-    posts = allPortfolio.value || []
+  if (props.feedType === 'manual') {
+    return props.selectedItems || []
   }
-
-  // Apply display count limit
-  if (props.displayCount && props.displayCount !== 'all') {
-    const limit = parseInt(props.displayCount, 10)
-    posts = posts.slice(0, limit)
-  }
-
-  return posts
+  return latestPortfolio.value || []
 })
 </script>
