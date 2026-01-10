@@ -1,7 +1,7 @@
 <template>
   <section class="portfolio-feed">
     <div class="py-16 md:py-20 lg:py-28">
-      <div class="layout-wide">
+      <div class="layout-mid">
         <div class="max-w-lg md:max-w-full mx-auto">
           <header class="md:flex items-center justify-between mb-8 md:mb-12">
             <div>

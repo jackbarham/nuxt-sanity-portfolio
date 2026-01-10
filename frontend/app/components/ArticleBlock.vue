@@ -1,6 +1,6 @@
 <template>
   <section class="article-block">
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-212 mx-auto layout-full">
       <div class="prose">
         <PortableText v-if="content" :value="content" :components="portableTextComponents" />
       </div>
