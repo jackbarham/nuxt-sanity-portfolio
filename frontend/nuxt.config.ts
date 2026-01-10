@@ -6,10 +6,7 @@ export default defineNuxtConfig({
     enabled: true
   },
   css: ['./app/assets/css/main.css'],
-  modules: [
-    '@nuxt/image',
-    'nuxt-svgo',
-  ],
+  modules: ['@nuxt/image', 'nuxt-svgo', '@nuxt/fonts'],
   components: [
     { path: '~/components', global: true },
   ],
@@ -26,6 +23,11 @@ export default defineNuxtConfig({
         apiVersion: process.env.NUXT_SANITY_API_VERSION,
       },
     }
+  },
+  fonts: {
+    defaults: {
+      weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+    },
   },
   image: {
     quality: 70,

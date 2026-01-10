@@ -3,7 +3,7 @@
     <article class="layout-mid">
       <div class="max-w-2xl lg:max-w-full mx-auto">
         <div class="mb-8">
-          <h1 class="text-4xl lg:text-5xl font-bold mb-4">{{ portfolio.title }}</h1>
+          <h1 class="text-4xl lg:text-5xl mb-4">{{ portfolio.title }}</h1>
           <p v-if="portfolio.intro" class="text-xl text-gray-600">{{ portfolio.intro }}</p>
         </div>
         <div class="pb-4 md:pb-0">

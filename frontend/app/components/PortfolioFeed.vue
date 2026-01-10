@@ -5,7 +5,7 @@
         <div class="max-w-lg md:max-w-full mx-auto">
           <header class="md:flex items-center justify-between mb-8 md:mb-12">
             <div>
-              <h2 v-if="heading" class="text-4xl md:text-5xl font-black">{{ heading }}</h2>
+              <h2 v-if="heading" class="text-4xl md:text-5xl">{{ heading }}</h2>
               <p v-if="intro" class="mt-4 text-lg text-gray-600 max-w-2xl">{{ intro }}</p>
             </div>
             <NuxtLink

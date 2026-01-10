@@ -16,9 +16,7 @@
   --color-brand-purple: #5122e1;
   --color-brand-grey-light: #f7f7f7;
   
-  /* --font-family-heading: "Transducer Variable", system-ui, sans-serif; */
-  /* --font-family-body: "inter", system-ui, sans-serif; */
-  --font-family-heading: system-ui, sans-serif;
+  --font-family-heading: Figtree, system-ui, sans-serif;
   --font-family-body: system-ui, sans-serif;
 }
 
