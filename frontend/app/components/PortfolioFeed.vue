@@ -4,26 +4,17 @@
       <div class="layout-mid">
         <div class="max-w-lg md:max-w-full mx-auto">
           <header class="md:flex items-center justify-between mb-8 md:mb-12">
-            <div>
-              <h2 v-if="heading" class="text-4xl md:text-5xl">{{ heading }}</h2>
-              <p v-if="intro" class="mt-4 text-lg text-gray-600 max-w-2xl">{{ intro }}</p>
+            <div v-if="heading || intro">
+              <h2 class="text-4xl md:text-5xl">{{ heading }}</h2>
+              <p class="mt-4 text-lg text-gray-600 max-w-2xl">{{ intro }}</p>
             </div>
-            <NuxtLink
+            <ButtonLight
               v-if="buttonCta?.link?.slug?.current && buttonCta?.text"
-              :to="`/${buttonCta.link.slug.current}`"
-              class="hidden md:inline-flex items-center px-6 py-3 border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-colors duration-200"
-            >
-              {{ buttonCta.text }}
-            </NuxtLink>
+              :url="buttonCta.link.slug.current"
+              :text="buttonCta.text"
+            />
           </header>
           <PortfolioGrid :posts="displayedPosts" />
-          <NuxtLink
-            v-if="buttonCta?.link?.slug?.current && buttonCta?.text"
-            :to="`/${buttonCta.link.slug.current}`"
-            class="md:hidden inline-flex items-center px-6 py-3 mt-8 border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-colors duration-200"
-          >
-            {{ buttonCta.text }}
-          </NuxtLink>
         </div>
       </div>
     </div>
