@@ -3,16 +3,18 @@
     <div class="py-16 md:py-20 lg:py-28">
       <div class="layout-mid">
         <div class="max-w-lg md:max-w-full mx-auto">
-          <header class="md:flex items-center justify-between mb-8 md:mb-12">
+          <header class="md:flex items-center justify-between mb-8">
             <div v-if="heading || intro">
-              <h2 class="text-4xl md:text-5xl">{{ heading }}</h2>
-              <p class="mt-4 text-lg text-gray-600 max-w-2xl">{{ intro }}</p>
+              <h2 v-if="heading" class="text-4xl md:text-5xl">{{ heading }}</h2>
+              <p v-if="intro" class="mt-2 md:mt-3 text-lg text-gray-800 max-w-2xl">{{ intro }}</p>
             </div>
-            <ButtonLight
-              v-if="buttonCta?.link?.slug?.current && buttonCta?.text"
-              :url="buttonCta.link.slug.current"
-              :text="buttonCta.text"
-            />
+            <div class="mt-4 md:mt-0">
+              <ButtonLight
+                v-if="buttonCta?.link?.slug?.current && buttonCta?.text"
+                :url="buttonCta.link.slug.current"
+                :text="buttonCta.text"
+              />
+            </div>
           </header>
           <PortfolioGrid :posts="displayedPosts" />
         </div>
