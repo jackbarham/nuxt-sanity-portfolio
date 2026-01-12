@@ -1,11 +1,11 @@
 <template>
   <section class="hero-intro">
     <div class="layout-mid">
-      <div class="pt-16 md:pt-20 lg:pt-28">
-        <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
-          <div class="w-full md:w-2/5">
+      <div class="max-w-xl lg:max-w-full mx-auto pt-12 md:pt-20 lg:pt-28">
+        <div class="flex flex-col lg:flex-row gap-8 md:gap-16 items-center">
+          <div class="w-full lg:w-2/5 px-6 md:px-0 relative -left-1">
             <svg
-            class="w-full h-auto"
+            class="w-full h-auto max-w-115 mx-auto"
             :viewBox="viewBox"
             preserveAspectRatio="xMidYMid meet"
           >
@@ -24,20 +24,21 @@
               <NuxtImg
                 v-if="image?.asset?._ref"
                 provider="sanity"
+                quality="85"
                 :src="image.asset._ref"
                 :width="imageWidth(image.asset._ref)"
                 :height="imageHeight(image.asset._ref)"
                 loading="lazy"
                 :alt="image.alt || heading"
-                sizes="100vw md:500px"
+                sizes="100vw md:700px lg:500px"
                 class="w-full h-full object-cover"
               />
             </foreignObject>
           </svg>
           </div>
-          <div class="w-full md:w-3/5 flex flex-col gap-6">
-            <h1 class="text-5xl/14 md:text-6xl/18 lg:text-7xl/21 font-extrabold">{{ heading }}</h1>
-            <p v-if="tagline" class="text-2xl/8 font-medium">{{ tagline }}</p>
+          <div class="w-full lg:w-3/5 flex flex-col gap-4 md:gap-6 max-w-sm sm:max-w-full text-center lg:text-left px-8 md:px-0">
+            <h1 class="text-4xl/11 sm:text-6xl/18 lg:text-6xl/18 xl:text-7xl/21 font-extrabold">{{ heading }}</h1>
+            <p v-if="tagline" class="text-xl/7 sm:text-2xl/8.5 text-gray-800 font-medium">{{ tagline }}</p>
           </div>
         </div>
       </div>
