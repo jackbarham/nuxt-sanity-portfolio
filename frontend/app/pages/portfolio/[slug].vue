@@ -2,9 +2,11 @@
   <div v-if="portfolio" class="page-portfolio">
     <article class="layout-mid">
       <div class="max-w-2xl lg:max-w-full mx-auto">
-        <div class="mb-8">
-          <h1 class="text-4xl lg:text-5xl mb-4">{{ portfolio.title }}</h1>
-          <p v-if="portfolio.intro" class="text-xl text-gray-600">{{ portfolio.intro }}</p>
+        <div class="py-10 md:py-16 lg:py-24">
+          <h1 class="max-w-4xl font-heading font-black text-4xl md:text-5xl lg:text-6xl">{{ portfolio.title }}</h1>
+          <div class="max-w-xl md:max-w-3xl mt-4 md:mt-6">
+            <p v-if="portfolio.intro" class="text-lg md:text-xl/7 lg:text-2xl/9">{{ portfolio.intro }}</p>
+          </div>
         </div>
         <div class="pb-4 md:pb-0">
           <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 lg:gap-10 xl:gap-14">

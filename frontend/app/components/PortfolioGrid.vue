@@ -14,7 +14,7 @@
                 loading="lazy"
                 :alt="post.title"
                 sizes="100vw md:50vw xl:33vw"
-                class="w-full h-full object-cover opacity-100 group-hover:opacity-80 transition-opacity duration-200"
+                class="w-full h-full object-cover"
               />
             </div>
             <h3 class="text-2xl/9 md:text-xl/7 group-hover:text-brand-red duration-200">{{ post.title }}</h3>
