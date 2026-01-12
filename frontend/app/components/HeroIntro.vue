@@ -35,9 +35,9 @@
             </foreignObject>
           </svg>
           </div>
-          <div class="w-full md:w-3/5 flex flex-col gap-4">
+          <div class="w-full md:w-3/5 flex flex-col gap-6">
             <h1 class="text-5xl/14 md:text-6xl/18 lg:text-7xl/21 font-extrabold">{{ heading }}</h1>
-            <p v-if="tagline" class="text-xl">{{ tagline }}</p>
+            <p v-if="tagline" class="text-2xl/8 font-medium">{{ tagline }}</p>
           </div>
         </div>
       </div>

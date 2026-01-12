@@ -5,7 +5,7 @@
         <div class="max-w-lg md:max-w-full mx-auto">
           <header class="md:flex items-center justify-between mb-8">
             <div v-if="heading || intro">
-              <h2 v-if="heading" class="text-4xl md:text-5xl">{{ heading }}</h2>
+              <h2 v-if="heading" class="text-4xl">{{ heading }}</h2>
               <p v-if="intro" class="mt-2 md:mt-3 text-lg text-gray-800 max-w-2xl">{{ intro }}</p>
             </div>
             <div class="mt-4 md:mt-0">

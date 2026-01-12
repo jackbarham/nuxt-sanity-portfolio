@@ -1,11 +1,11 @@
 <template>
   <header 
-    class="header fixed top-0 left-0 w-full z-50 transform transition-transform duration-300 ease-in-out" 
+    class="header fixed top-0 left-0 w-full z-50 transform transition-transform duration-300 ease-in-out border-b border-stone-200" 
     :class="headerVisible ? 'translate-y-0' : '-translate-y-full'"
   >
     
     <!-- Main Header -->
-    <div class="relative z-50 border-b border-stone-200 bg-stone-50">
+    <div class="relative z-50 bg-stone-50">
       <div class="h-16 md:h-18 flex justify-between items-center layout-full">
         
         <!-- Title -->
