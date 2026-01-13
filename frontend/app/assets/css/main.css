@@ -96,13 +96,6 @@
   }
 }
 
-/* Nuxt SVGO base styles */
-.nuxt-icon {
-  height: 100% !important;
-  width: 100% !important;
-  margin: 0 !important;
-}
-
 /* Page transition */
 .page-enter-active,
 .page-leave-active {
@@ -111,4 +104,60 @@
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
+}
+
+/* 
+ * Nuxt SVGO base styles
+*/
+.nuxt-icon {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* 
+ * CAROUSEL - VUE SLIDER 
+*/
+
+/* Pagination */
+.carousel__slide--active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel__pagination {
+  bottom: -48px;
+}
+
+.carousel__pagination-button {
+  height: 8px;
+  width: 24px;
+  margin: 0 2px;
+  background-color: theme(--color-brand-yellow-dark);
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in;
+}
+
+.carousel__pagination-button:hover {
+  background-color: theme(--color-brand-red);
+  transition: background-color 0.2s ease-in;
+}
+
+.carousel__pagination-button.carousel__pagination-button--active {
+  opacity: 1;
+  background-color: theme(--color-brand-red);
+}
+
+@media only screen and (min-width: theme(--breakpoint-md)) {
+  .carousel__pagination {
+    bottom: -64px;
+  }
+}
+
+@media only screen and (min-width: theme(--breakpoint-lg)) {
+  .carousel__pagination-button {
+    height: 8px;
+    width: 32px;
+    margin: 0 4px;
+  }
 }

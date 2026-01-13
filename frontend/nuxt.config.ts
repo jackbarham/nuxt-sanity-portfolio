@@ -6,7 +6,12 @@ export default defineNuxtConfig({
     enabled: true
   },
   css: ['./app/assets/css/main.css'],
-  modules: ['@nuxt/image', 'nuxt-svgo', '@nuxt/fonts'],
+  modules: [
+    '@nuxt/image', 
+    'nuxt-svgo', 
+    '@nuxt/fonts',
+    'vue3-carousel-nuxt',
+  ],
   components: [
     { path: '~/components', global: true },
   ],

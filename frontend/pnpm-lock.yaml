@@ -38,6 +38,9 @@ importers:
       vue-router:
         specifier: ^4.6.4
         version: 4.6.4(vue@3.5.26)
+      vue3-carousel-nuxt:
+        specifier: ^1.1.6
+        version: 1.1.6(magicast@0.5.1)(vue@3.5.26)
     devDependencies:
       '@portabletext/types':
         specifier: ^4.0.1
@@ -3732,6 +3735,14 @@ packages:
 
   vue-router@4.6.4:
     resolution: {integrity: sha512-Hz9q5sa33Yhduglwz6g9skT8OBPii+4bFn88w6J+J4MfEo4KRRpmiNG/hHHkdbRFlLBOqxN8y8gf2Fb0MTUgVg==}
+    peerDependencies:
+      vue: ^3.5.0
+
+  vue3-carousel-nuxt@1.1.6:
+    resolution: {integrity: sha512-y5CTJBj3HryL0l+8pzvXyWHTj/SUiBYChsces5GMyKQoad2yMXsdofzpKSrTquoCgrd1hWHUO2DBnN6ougA0Gg==}
+
+  vue3-carousel@0.15.1:
+    resolution: {integrity: sha512-nV2ChLZtgAOikmls8WaVe37vO4Wagk4RYawePHIvXrFtduFnQODyzPx8MmXaAb6l+ka72yAi04ZeCyciiyJMyA==}
     peerDependencies:
       vue: ^3.5.0
 
@@ -7831,6 +7842,18 @@ snapshots:
   vue-router@4.6.4(vue@3.5.26):
     dependencies:
       '@vue/devtools-api': 6.6.4
+      vue: 3.5.26
+
+  vue3-carousel-nuxt@1.1.6(magicast@0.5.1)(vue@3.5.26):
+    dependencies:
+      '@nuxt/kit': 3.20.2(magicast@0.5.1)
+      vue3-carousel: 0.15.1(vue@3.5.26)
+    transitivePeerDependencies:
+      - magicast
+      - vue
+
+  vue3-carousel@0.15.1(vue@3.5.26):
+    dependencies:
       vue: 3.5.26
 
   vue@3.5.26:
