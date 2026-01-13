@@ -8,4 +8,11 @@ import { articleBlock } from './components/articleBlock'
 import { portfolioFeed } from './components/portfolioFeed'
 import { heroIntro } from './components/heroIntro'
 
-export const schemaTypes = [page, portfolio, settings, articleBlock, portfolioFeed, heroIntro]
+export const schemaTypes = [
+  page, 
+  portfolio, 
+  settings, 
+  articleBlock, 
+  portfolioFeed, 
+  heroIntro,
+]
