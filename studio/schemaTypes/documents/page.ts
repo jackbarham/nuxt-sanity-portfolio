@@ -52,7 +52,13 @@ export const page = defineType({
       name: 'components',
       title: 'Components',
       type: 'array',
-      of: [{ type: 'heroIntro' }, { type: 'articleBlock' }, { type: 'portfolioFeed' }, { type: 'testimonials' }],
+      of: [
+        { type: 'heroIntro' }, 
+        { type: 'articleBlock' }, 
+        { type: 'portfolioFeed' }, 
+        { type: 'testimonials' }, 
+        { type: 'contactCta' }
+      ],
     }),
   ],
   preview: {

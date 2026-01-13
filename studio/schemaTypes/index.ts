@@ -5,6 +5,7 @@ import { settings } from './documents/settings'
 
 // Components
 import { articleBlock } from './components/articleBlock'
+import { contactCta } from './components/contactCta'
 import { portfolioFeed } from './components/portfolioFeed'
 import { heroIntro } from './components/heroIntro'
 import { testimonials } from './components/testimonials'
@@ -14,6 +15,7 @@ export const schemaTypes = [
   portfolio,
   settings,
   articleBlock,
+  contactCta,
   portfolioFeed,
   heroIntro,
   testimonials,
