@@ -1,8 +1,11 @@
-import { page } from './page'
-import { portfolio } from './portfolio'
-import { settings } from './settings'
-import { articleBlock } from './articleBlock'
-import { portfolioFeed } from './portfolioFeed'
-import { heroIntro } from './heroIntro'
+// Documents
+import { page } from './documents/page'
+import { portfolio } from './documents/portfolio'
+import { settings } from './documents/settings'
+
+// Components
+import { articleBlock } from './components/articleBlock'
+import { portfolioFeed } from './components/portfolioFeed'
+import { heroIntro } from './components/heroIntro'
 
 export const schemaTypes = [page, portfolio, settings, articleBlock, portfolioFeed, heroIntro]
