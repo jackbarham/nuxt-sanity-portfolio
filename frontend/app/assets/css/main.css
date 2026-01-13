@@ -28,7 +28,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: theme(--font-family-heading);
-    @apply font-bold text-black;
+    @apply font-bold text-black tracking-[-0.005em];
   }
 
   .font-heading {
