@@ -7,12 +7,14 @@ import { settings } from './documents/settings'
 import { articleBlock } from './components/articleBlock'
 import { portfolioFeed } from './components/portfolioFeed'
 import { heroIntro } from './components/heroIntro'
+import { testimonials } from './components/testimonials'
 
 export const schemaTypes = [
-  page, 
-  portfolio, 
-  settings, 
-  articleBlock, 
-  portfolioFeed, 
+  page,
+  portfolio,
+  settings,
+  articleBlock,
+  portfolioFeed,
   heroIntro,
+  testimonials,
 ]
