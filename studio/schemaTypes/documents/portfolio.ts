@@ -24,6 +24,12 @@ export const portfolio = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'publishedAt',
+      title: 'Published At',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+    }),
+    defineField({
       name: 'previewImage',
       title: 'Preview Image',
       type: 'image',
