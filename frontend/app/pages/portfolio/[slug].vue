@@ -41,7 +41,7 @@
                 />
               </div>
             </div>
-            <div class="w-full lg:w-[320px] xl:w-110">
+            <div class="w-full lg:w-90 xl:w-110">
               <div v-if="portfolio.client" class="mb-12">
                 <h2 class="text-2xl lg:text-3xl mb-4">Client</h2>
                 <div class="prose">
@@ -90,6 +90,7 @@ const { data: portfolio } = await useSanityQuery<Portfolio>(groq`
     _id,
     title,
     slug,
+    publishedAt,
     previewImage{
       asset->{url}
     },
