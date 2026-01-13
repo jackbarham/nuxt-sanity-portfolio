@@ -9,7 +9,7 @@
       <div class="h-16 md:h-18 flex justify-between items-center layout-full">
         
         <!-- Title -->
-        <h1 class="text-lg md:text-2xl font-heading mb-0.5 md:mb-1">
+        <h1 class="text-xl md:text-2xl font-heading mb-0.5 md:mb-1">
           <NuxtLink to="/" @click="closeMobileMenu()">{{ siteTitle }}</NuxtLink>
         </h1>
         
@@ -46,7 +46,7 @@
     <nav
       aria-label="Mobile navigation"
       id="mobile-navigation"
-      class="absolute -z-10 left-0 w-full bg-stone-50 p-12 transform transition-transform ease-in-out duration-200"
+      class="absolute -z-10 left-0 w-full bg-stone-50 p-12 transform transition-transform ease-in-out duration-300"
       :class="menuOpen ? 'translate-y-0' : '-translate-y-full'"
       :style="{ top: `${HEADER_HEIGHT}px`, height: `calc(100dvh - ${HEADER_HEIGHT}px)` }"
     >
@@ -62,7 +62,7 @@
             :to="link.url" 
             @click="closeMobileMenu"
             :aria-label="link.title"
-            class="block text-3xl font-heading font-medium tracking-wide py-3"
+            class="block text-3xl font-semibold tracking-wide py-3"
           >{{ link.title }}</NuxtLink>
         </li>
       </ul>
