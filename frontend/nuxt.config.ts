@@ -35,7 +35,7 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    quality: 70,
+    quality: 80,
     sanity: {
       projectId: process.env.NUXT_SANITY_PROJECT_ID!,
       dataset: process.env.NUXT_SANITY_DATASET!,

@@ -55,15 +55,18 @@
   }
 
   .layout-wide {
-    @apply max-w-345 w-full m-auto px-4 sm:px-8 lg:px-12 xl:px-16;
+    /* 1380px */
+    @apply max-w-345 w-full mx-auto px-4 sm:px-8 lg:px-12 xl:px-16;
   }
 
   .layout-large {
-    @apply max-w-270 w-full m-auto px-4 sm:px-8 lg:px-12 xl:px-16;
+    /* 1280px */
+    @apply max-w-7xl w-full mx-auto px-4 sm:px-8 lg:px-12 xl:px-16;
   }
 
   .layout-mid {
-    @apply max-w-6xl w-full m-auto px-4 sm:px-8 lg:px-12 xl:px-16;
+    /* 1152px */
+    @apply max-w-6xl w-full mx-auto px-4 sm:px-8 lg:px-12 xl:px-16;
   }
 
   /*

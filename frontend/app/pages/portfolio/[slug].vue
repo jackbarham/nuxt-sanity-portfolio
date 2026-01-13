@@ -1,15 +1,15 @@
 <template>
   <div v-if="portfolio" class="page-portfolio">
-    <article class="layout-mid">
+    <article class="layout-large">
       <div class="max-w-2xl lg:max-w-full mx-auto">
         <div class="py-10 md:py-16 lg:py-24">
           <h1 class="max-w-4xl font-heading font-black text-4xl md:text-5xl lg:text-6xl">{{ portfolio.title }}</h1>
           <div class="max-w-xl md:max-w-3xl mt-4 md:mt-6">
-            <p v-if="portfolio.intro" class="text-lg md:text-xl/7 lg:text-2xl/9">{{ portfolio.intro }}</p>
+            <p v-if="portfolio.intro" class="text-xl/7 sm:text-2xl/8.5 text-gray-800 font-medium">{{ portfolio.intro }}</p>
           </div>
         </div>
         <div class="pb-4 md:pb-0">
-          <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 lg:gap-10 xl:gap-14">
+          <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 lg:gap-10 xl:gap-12">
             <div class="w-full">
               <div v-if="portfolio.vimeoId" class="mb-4 lg:mb-8 bg-gray-100 rounded-lg overflow-hidden">
                 <div class="aspect-video">
